@@ -1,0 +1,15 @@
+CREATE DATABASE crudnodejs;
+
+CREATE TABLE cliente (
+    id int NOT NULL AUTO_INCREMENT,
+    nombre varchar(255),
+    direccion varchar(255),
+    celular varchar(255),
+    PRIMARY KEY (id)
+);
+
+INSERT INTO `cliente`(`nombre`, `direccion`, `celular`) VALUES ('Juan','Carrea 65 # 12 -12','3207193146');
+
+INSERT INTO `cliente`(`nombre`, `direccion`, `celular`) VALUES ('Karla','Carrea 120 # 65 -12','320987579');
+
+INSERT INTO `cliente`(`nombre`, `direccion`, `celular`) VALUES ('Karen','Carrea 78 # 64 -20','310159753');
