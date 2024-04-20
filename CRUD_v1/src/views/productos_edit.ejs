@@ -10,9 +10,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">CRUD Nodejs Mysql</a>
-        <a class="navbar-brand" href="/productos">Lista de productos</a>
     </nav>
-    <h1>Inicio</h1>
+    <h1>Lista de productos</h1>
     <div class="container mt-5">
         <div class="row">
         <div class="col-md-7">
@@ -21,8 +20,9 @@
                 <tr>
                 <td>n°</td>
             <td>Nombre</td>
-            <td>Dirección</td>
-        <td>Celular</td>
+            <td>Descripción</td>
+        <td>Cantidad</td>
+        <td>Costo (c/u)</td>
         <td>Acciones</td>
         </tr>
         </thead>
@@ -30,13 +30,14 @@
         <% if (data) { %>
         <% for(var i = 0; i < data.length; i++) { %>
         <tr>
-        <td><%= (i + 1) %></td>
+        <td><%= data[i].id %></td>
         <td><%= data[i].nombre %></td>
-        <td><%= data[i].direccion %></td>
-        <td><%= data[i].celular %></td>
+        <td><%= data[i].descripcion %></td>
+        <td><%= data[i].cantidad %></td>
+        <td> $ <%= data[i].costo %></td>
         <td>
-        <a href="/update/<%= data[i].id %>" class="btn btn-info">Editar</a>
-        <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Borrar</a>
+        <a href="/updateProductos/<%= data[i].id %>" class="btn btn-info">Editar</a>
+        <a href="/deleteProductos/<%= data[i].id %>" class="btn btn-danger">Borrar</a>
         </td>
         </tr>
         <% } %>
@@ -46,19 +47,23 @@
     </div>
     <div class="col-md-5">
         <div class="card-body">
-            <form action="/add" method="post">
+            <form action="/addProduct" method="post">
                 <div class="form-group">
                      <input type="text" name="nombre" placeholder="Name" class="form-control" autofocus>
                 </div>
                 <br>
                 <div class="form-group">
-                     <input type="text" name="direccion" placeholder="Address" class="form-control">
+                     <input type="text" name="descripcion" placeholder="Descripción" class="form-control">
                 </div>
                 <br>
                 <div class="form-group">
-                     <input type="text" name="celular" placeholder="Phone" class="form-control">
+                     <input type="text" name="cantidad" placeholder="Cantidad" class="form-control">
                 </div>
                 <br>
+                <div class="form-group">
+                    <input type="text" name="costo" placeholder="Costo" class="form-control">
+               </div>
+               <br>
                 <button type="submit" class="btn btn-primary">
                     Guardar
                 </button>

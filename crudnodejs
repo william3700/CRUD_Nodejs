@@ -13,3 +13,19 @@ INSERT INTO `cliente`(`nombre`, `direccion`, `celular`) VALUES ('Juan','Carrea 6
 INSERT INTO `cliente`(`nombre`, `direccion`, `celular`) VALUES ('Karla','Carrea 120 # 65 -12','320987579');
 
 INSERT INTO `cliente`(`nombre`, `direccion`, `celular`) VALUES ('Karen','Carrea 78 # 64 -20','310159753');
+
+
+******************** PRODUCTOS ************************************
+
+CREATE TABLE producto (
+    id int NOT NULL AUTO_INCREMENT,
+    nombre varchar(255),
+    descripcion varchar(255),
+    cantidad varchar(255),
+    costo varchar(255),
+    PRIMARY KEY (id)
+);
+	
+INSERT INTO `producto`(`nombre`, `descripcion`, `cantidad`, `costo`) VALUES ('chaqueta','color negro y rojo','20','235500')
+
+INSERT INTO `producto`(`nombre`, `descripcion`, `cantidad`, `costo`) VALUES ('csmiseta','color blanco','150','18500')
