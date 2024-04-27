@@ -15,4 +15,9 @@ router.get('/updateProductos/:id', customerController.editarProductos);
 router.post('/updateProductos/:id', customerController.updateProductos);
 router.get('/deleteProductos/:id',customerController.deleteProductos);
 
+router.get('/calculadoraIMC',customerController.inicioIMC);
+router.post('/addProductIMC',customerController.saveIMC);
+router.get('/editarIMC/:id', customerController.editarIMC);
+router.post('/editarIMC/:id', customerController.updatesIMC);
+router.get('/deleteIMC/:id',customerController.deleteIMC);
 module.exports=router;

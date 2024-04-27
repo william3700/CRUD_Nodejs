@@ -117,7 +117,62 @@ controller.saveProducto = (req, res) => {
       });
     };
 
+  //*****************************************************************************/
+  controller.inicioIMC=(req,res)=>{
+      req.getConnection((err,conn)=>{
+          conn.query('SELECT * FROM IMC',(err,customers)=>{
+              if(err){
+                 res.json(err); 
+              }
+              console.log(customers);
+              res.render('calculadoraIMC',{
+                  data:customers
+              });
+          })
+  
+      });
+  }
 
+  controller.saveIMC = (req, res) => {
+    const data = req.body;
+              //console.log(req.body);
+             // res.send('works');
+         req.getConnection((err, connection) => {
+         const query = connection.query('INSERT INTO IMC set ?', data, (err, customer) => {
+         console.log(customer)
+         res.redirect('/calculadoraIMC');
+       });
+     });
+ }    
 
+ controller.deleteIMC = (req, res) => {
+    const { id } = req.params;
+         req.getConnection((err, connection) => {
+         connection.query('DELETE FROM IMC WHERE id = ?', [id], (err, rows) => {
+         res.redirect('/calculadoraIMC');
+        });
+       });
+     }
+
+     controller.editarIMC = (req, res) => {
+      const { id } = req.params;
+          req.getConnection((err, conn) => {
+          conn.query("SELECT * FROM IMC WHERE id = ?", [id], (err, rows) => {
+          res.render('calculadoraIMC_edit', {
+          data: rows[0]
+      })
+    });
+  });
+}
+
+controller.updatesIMC = (req, res) => {
+  const { id } = req.params;
+  const newCustomer = req.body;
+  req.getConnection((err, conn) => {
+  conn.query('UPDATE IMC set ? where id = ?', [newCustomer, id], (err, rows) => {
+  res.redirect('/calculadoraIMC');
+  });
+});
+};
 
 module.exports=controller;

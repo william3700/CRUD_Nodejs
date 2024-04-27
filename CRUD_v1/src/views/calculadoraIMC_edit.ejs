@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+  <title>Document</title>
+</head>
+<body>
+  <!-- navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">CRUD Nodejs Mysql</a>
+</nav>
+<h3>Módulo Edición Calculadora IMC</h3>
+<!---->
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card border-secondary mb-3">
+      <div class="card-body">
+          <div class="container">
+              <div class="card">
+                  <form action="/editarIMC/<%= data.id %>" method="POST">
+                      <div class="card-body">
+                              Sexo
+                              <select class="form-select" name="sexo"  aria-label="Default select example">
+                                  <option selected>Seleccione</option>
+                                  <option value="Masculino">Masculino</option>
+                                  <option value="Femenino">Femenino</option>
+                              </select>
+                      </div>
+                      </div>
+                      <br/>
+                      <div class="card">
+                              <div class="card-body">
+                              Edad
+                              <div class="mb-3">
+                                  <input type="text" name="edad" value="<%= data.edad%>" class="form-control" id="exampleFormControlInput1">
+                              </div>
+                              </div>
+                      </div>
+                      <br/>
+                      <div class="card">
+                              <div class="card-body">
+                              Estatura (centímetros)
+                              <div class="mb-3">
+                                  <input type="text" name="estatura" value="<%= data.estatura%>" id="estatura" class="form-control" id="exampleFormControlInput1">
+                              </div>             
+                              </div>
+                      </div>
+                      <br/>
+                      <div class="card">
+                              <div class="card-body">
+                              Peso (Kg)
+                              <div class="mb-3">
+                                  <input type="text" name="peso" id="peso" value="<%= data.peso%>" class="form-control" id="exampleFormControlInput1">
+                              </div>
+                              </div>
+                      </div>
+                      <br/>
+      
+                      <button type="submit" class="btn btn-primary">
+                          Guardar
+                      </button>
+                  </form>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card border-secondary mb-3">
+      <div class="card-body">
+        <h3 class="card-title">Resultados</h3>
+            
+        <div class="card">
+          <div class="card-body">
+              <h4>Indice de masa corporal</h4>
+              <div class="mb-3">
+                  <input type="text" class="form-control" value="xxxx-120">
+              </div>
+          </div>
+        </div>
+            <br/>
+            <div class="card">
+              <div class="card-body">
+                  <h4>Estado</h4>
+                  <div class="mb-3">
+                      <input type="text" class="form-control" value="yyyyyy" id="exampleInputPassword1">
+                  </div>
+              </div>
+            </div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+    
